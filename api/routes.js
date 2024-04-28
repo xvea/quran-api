@@ -11,25 +11,7 @@ router.use((req, res, next) => {
   next();
 });
 
-router.get('/', (req, res) => res.status(200).send({
-  surah: {
-    listSurah: '/surah',
-    spesificSurah: {
-      pattern: '/surah/{surah}',
-      example: '/surah/18'
-    },
-    spesificAyahInSurah: {
-      pattern: '/surah/{surah}/{ayah}',
-      example: '/surah/18/60'
-    },
-    spesificJuz: {
-      pattern: '/juz/{juz}',
-      example: '/juz/30'
-    }
-  },
-  maintaner: 'Sutan Gading Fadhillah Nasution <contact@gading.dev>',
-  source: 'https://github.com/gadingnst/quran-api'
-}));
+router.get('/', (req, res) => res.status(404).send({ code: 404 }));
 
 router.get('/surah', caching, SurahHandler.getAllSurah);
 
